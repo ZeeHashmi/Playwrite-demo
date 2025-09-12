@@ -1,0 +1,26 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Setup') {
+            steps {
+                sh 'python -m pip install --upgrade pip'
+                sh 'pip install pytest pytest-playwright pytest-html'
+                sh 'playwright install'
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                // Run Playwright + Pytest
+                sh 'pytest test_demo_pytest.py --html=report.html --self-contained-html'
+            }
+            post {
+                always {
+                    // Archive the HTML report
+                    archiveArtifacts artifacts: 'report.html', followSymlinks: false
+                }
+            }
+        }
+    }
+}
