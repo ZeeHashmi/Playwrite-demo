@@ -1,0 +1,31 @@
+{
+  "name": "ai-security-test-suite",
+  "version": "1.0.0",
+  "description": "Playwright-based security test suite for AI systems",
+  "main": "index.js",
+  "author": "Zee Hashmi",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "report": "playwright show-report"
+  },
+  "keywords": [
+    "ai",
+    "security",
+    "playwright",
+    "testing",
+    "prompt-injection",
+    "jailbreak"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.40.0",
+    "@types/node": "^20.10.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.3.1"
+  }
+}
